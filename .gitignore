@@ -1,2 +1,5 @@
 # Private aliases
 aliases/private.fish
+
+# fish generated files
+fishd*

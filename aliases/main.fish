@@ -1,0 +1,7 @@
+alias ls="ls -FG"
+alias rm="rm -i"
+alias ssh_tunnel_bg="ssh -f -N"
+alias sha256sum="shasum -a 256"
+alias who8080="lsof -ti tcp:8080"
+alias getPID="ps -p"
+alias unset="set --erase"

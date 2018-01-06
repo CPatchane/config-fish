@@ -1,13 +1,16 @@
 function get_right_prompt --description 'Get right prompt content'
     # if git repository
     if git rev-parse --git-dir > /dev/null 2>&1
-        set_color yellow -b normal
+        set -l cl_gorse 'FFEB3B'
+        set -l cl_empress '757575'
+        set -l cl_black '000000'
+        set_color $cl_gorse -b normal
         printf ''
-        set_color black -b yellow
+        set_color $cl_black -b $cl_gorse
         printf '  '
-        set_color brblack -b yellow
+        set_color $cl_empress -b $cl_gorse
         printf ''
-        set_color normal -b brblack
+        set_color normal -b $cl_empress
         printf ' %s' (__fish_git_prompt '%s')
         set_color normal
     else

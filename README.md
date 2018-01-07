@@ -1,6 +1,6 @@
-# Fish configuration
+# My [Fish]([fish](https://fishshell.com)) configuration
 
-My personal [fish](https://fishshell.com) prompt configuration. I personaly prefer it on a black background but it also fits with other backgrounds.
+My personal [fish](https://fishshell.com) prompt configuration. I prefer it on a black background but it can fit with other background colors.
 
 ### Screenshots
 
@@ -25,7 +25,7 @@ The purpose of this configuration is for my personal usage only. I share it on G
 
 1) Install the [nerdfont](https://github.com/ryanoasis/nerd-fonts) of your choice and use it in your terminal. As the prompt will use some special characters from these fonts, you will need it if your want to have all icons.
 
-2) Put all the config files and folders (this repository content) in your `~/.config/fish` folder. This latter should already be present if you've installed fish.
+2) Put all the config files and folders (this repository content) in your `~/.config/fish` folder. This latter should already be present if you've installed [`fish`](https://fishshell.com).
 
 3) Install `nodenv` and `rbenv`. If you don't need/use these environments you can comment (or even remove) the related lines from the `config.fish` file:
     ```diff

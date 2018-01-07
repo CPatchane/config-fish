@@ -32,7 +32,7 @@ if [ -f $HOME/.config/fish/aliases/main.fish ]
     source $HOME/.config/fish/aliases/main.fish
 end
 
-# Private aliases (c.f. with servers address...)
+# Private aliases (e.g. with servers address...)
 ## aliases/private.fish will be ignored by git (.gitignore)
 if [ -f $HOME/.config/fish/aliases/private.fish ]
     source $HOME/.config/fish/aliases/private.fish

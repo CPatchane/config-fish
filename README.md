@@ -25,26 +25,13 @@ The purpose of this configuration is for my personal usage only. I share it on G
 
 1) Install the [nerdfont](https://github.com/ryanoasis/nerd-fonts) of your choice and use it in your terminal. As the prompt will use some special characters from these fonts, you will need it if your want to have all icons.
 
-2) Put all the config files and folders (this repository content) in your `~/.config/fish` folder. This latter should already be present if you've installed [`fish`](https://fishshell.com).
+2) Put all the config files and folders (this repository content) in your `~/.config/fish` folder. This latter should already be present if you've installed [`fish`](https://fishshell.com). You can also simply `git clone` inside your config folder (make sure it's empty before):
 
-3) Install `nodenv` and `rbenv`. If you don't need/use these environments you can comment (or even remove) the related lines from the `config.fish` file:
-    ```diff
-    # Nodenv
-    - status --is-interactive; and source (nodenv init -|psub)
-    + # status --is-interactive; and source (nodenv init -|psub)
-    # Rbenv
-    - status --is-interactive; and source (rbenv init -|psub)
-    + # status --is-interactive; and source (rbenv init -|psub)
     ```
-4) If you don't need the `golang` environment, you can comment also (or even remove) the Go related lines from the `config.fish` file:
-    ```diff
-    # Go
-    - set -x GOPATH $HOME/Dev/go
-    - set -x GOROOT /usr/local/opt/go/libexec
-    - set -x PATH $GOPATH $PATH
-    - set -x PATH $GOPATH/bin $PATH
-    + # set -x GOPATH $HOME/Dev/go
-    + # set -x GOROOT /usr/local/opt/go/libexec
-    + # set -x PATH $GOPATH $PATH
-    + # set -x PATH $GOPATH/bin $PATH
+    cd ~/.config/fish
+    # make sure the folder is empty (check with ls -la)
+    # then clone in the current folder
+    git clone https://github.com/CPatchane/config-fish.git .
     ```
+
+3) If you don't need/use `nodenv` or/and `rbenv`, don't worry, the config will check if these commands exist before initializing them. This is the same thing for the `golang` environment, it will check if the command `go` exist before initializing the related environment.

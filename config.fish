@@ -12,17 +12,23 @@ set -x SUDO_EDITOR "rvim -u NONE"
 
 ## ENV
 
-# Go
-set -x GOPATH $HOME/Dev/go
-set -x GOROOT /usr/local/opt/go/libexec
-set -x PATH $GOPATH $PATH
-set -x PATH $GOPATH/bin $PATH
+# Go (if go exists)
+if type -q go
+    set -x GOPATH $HOME/Dev/go
+    set -x GOROOT /usr/local/opt/go/libexec
+    set -x PATH $GOPATH $PATH
+    set -x PATH $GOPATH/bin $PATH
+end
 
-# Nodenv
-status --is-interactive; and source (nodenv init -|psub)
+# Nodenv (if nodenv exists)
+if type -q nodenv
+    status --is-interactive; and source (nodenv init -|psub)
+end
 
-# Rbenv
-status --is-interactive; and source (rbenv init -|psub)
+# Rbenv (if rbenv exists)
+if type -q rbenv
+    status --is-interactive; and source (rbenv init -|psub)
+end
 
 #
 ### ALIAS

@@ -34,4 +34,4 @@ The purpose of this configuration is for my personal usage only. I share it on G
     git clone https://github.com/CPatchane/config-fish.git .
     ```
 
-3) If you don't need/use `nodenv` or/and `rbenv`, don't worry, the config will check if these commands exist before initializing them. This is the same thing for the `golang` environment, it will check if the command `go` exist before initializing the related environment.
+3) If you don't need/use `nodenv`, `pyenv` or/and `rbenv`, don't worry, the config will check if these commands exist before initializing them. This is the same thing for the `golang` environment, it will check if the command `go` exist before initializing the related environment.

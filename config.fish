@@ -30,6 +30,11 @@ if type -q rbenv
     status --is-interactive; and source (rbenv init -|psub)
 end
 
+# Pyenv (if pyenv exists)
+if type -q pyenv
+    status --is-interactive; and source (pyenv init -|psub)
+end
+
 #
 ### ALIAS
 #

@@ -5,6 +5,9 @@
 # Colors for ls command
 set -x LSCOLORS "Exfxcxdxbxegedabagacad"
 
+# Keys binding
+bind "^X\\x7f" backward-kill-line
+
 # Editor
 set -x EDITOR vim
 set -x GIT_EDITOR $EDITOR

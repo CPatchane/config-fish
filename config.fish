@@ -3,7 +3,7 @@
 #
 
 # Colors for ls command
-set -x LSCOLORS "Exfxcxdxbxegedabagacad"
+set -gx LSCOLORS "Cxbgdxdxbxdgeghegeacad"
 
 # Keys binding
 bind "^X\\x7f" backward-kill-line

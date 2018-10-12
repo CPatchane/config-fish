@@ -1,5 +1,6 @@
 alias gs="git status"
 alias gc="git checkout"
+alias gci="git checkout -p"
 alias gf="git fetch --all"
 alias gb="git bisect"
 alias gpull="git pull"

@@ -21,30 +21,8 @@ set -x SUDO_EDITOR "rvim -u NONE"
 
 ## ENV
 
-# Go (if go exists)
-if type -q go
-    set -x GOPATH $HOME/Dev/go
-    set -x GOROOT /usr/local/opt/go/libexec
-    set -x PATH $GOPATH $PATH
-    set -x PATH $GOPATH/bin $PATH
-end
-
-# Nodenv (if nodenv exists)
-if type -q nodenv
-    status --is-interactive; and source (nodenv init -|psub)
-end
-
-# Rbenv (if rbenv exists)
-if type -q rbenv
-    status --is-interactive; and source (rbenv init -|psub)
-end
-
-# Pyenv (if pyenv exists) with virtualenv if pyenv-virtualenv plugin installed
-if type -q pyenv
-    status --is-interactive; and source (pyenv init -|psub)
-    if which pyenv-virtualenv-init > /dev/null
-        status --is-interactive; and source (pyenv virtualenv-init -|psub)
-    end
+if [ -f $HOME/.config/fish/env/index.fish ]
+    source $HOME/.config/fish/env/index.fish
 end
 
 #

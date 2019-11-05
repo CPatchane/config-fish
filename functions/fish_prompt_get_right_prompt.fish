@@ -1,4 +1,4 @@
-function get_right_prompt --description 'Get right prompt content'
+function fish_prompt_get_right_prompt --description 'Get right prompt content'
     # if git repository
     if git rev-parse --git-dir > /dev/null 2>&1
         set -l cl_gorse 'FFEB3B'

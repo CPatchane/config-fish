@@ -2,12 +2,12 @@ function fish_prompt --description 'Write out the prompt'
     set last_status $status
 
     # get prompts for the first line
-    set -l left_prompt (get_left_prompt)
-    set -l right_prompt (get_right_prompt)
+    set -l left_prompt (fish_prompt_get_left_prompt)
+    set -l right_prompt (fish_prompt_get_right_prompt)
 
     # spaces
-    set -l left_length (visual_length $left_prompt)
-    set -l right_length (visual_length $right_prompt)
+    set -l left_length (fish_prompt_visual_length $left_prompt)
+    set -l right_length (fish_prompt_visual_length $right_prompt)
     set -l spaces (math "$COLUMNS - $left_length - $right_length")
 
     # Display first line

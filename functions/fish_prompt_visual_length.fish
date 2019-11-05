@@ -1,4 +1,4 @@
-function visual_length --description\
+function fish_prompt_visual_length --description\
     "Return visual length of string, i.e. without terminal escape sequences"
     # using perl
     # printf $argv | perl -pe 's/\x1b.*?[mGKH]//g' | wc -m

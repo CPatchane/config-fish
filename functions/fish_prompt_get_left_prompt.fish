@@ -1,4 +1,4 @@
-function get_left_prompt --description 'Get first line left prompt content'
+function fish_prompt_get_left_prompt --description 'Get first line left prompt content'
     set -l cl_blue_1 '1C55A2'
     set -l cl_blue_2 '428CF1'
     set -l cl_blue_3 '78A8F2'

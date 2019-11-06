@@ -17,16 +17,19 @@ Mainly:
 - Prompt using two lines
 - Custom Git prompt using a [nerdfont](https://github.com/ryanoasis/nerd-fonts)
 - Add custom aliases for git and some CLIs with private aliases
-- Handle environment configuration __if needed__ (in `env/` directory):
-  - __[if `nodenv` installed]__ Initialize a Node environment ([nodenv](https://github.com/nodenv/nodenv))
-  - __[if `rbenv` installed]__ Initialize a Ruby environment ([rbenv](https://github.com/rbenv/rbenv))
-  - __[if `pyenv` installed]__ Initialize a Python environment ([pyenv](https://github.com/pyenv/pyenv)) with virtualenv management ([pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv))
+- Add some useful functions like `yupgrade` (see [`./functions` directory](./functions))
+- Handle environment configuration when needed (see [the environments part](#environements))
+
+#### Environements
+
+This configuration handle some environments if it found the related command (see [`./env` directory](./env)):
+  - __[if `nodenv` installed]__ Initialize a Node environment using [nodenv](https://github.com/nodenv/nodenv)
+  - __[if `rbenv` installed]__ Initialize a Ruby environment using [rbenv](https://github.com/rbenv/rbenv)
+  - __[if `pyenv` installed]__ Initialize a Python environment using [pyenv](https://github.com/pyenv/pyenv) with virtualenv management ([pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv))
   - __[if `go` installed]__ Set [Go](https://golang.org/) environment variables
-  - __[if `mysql@5.7` installed]__ Set environment variables and CLIs paths for mysql
+  - __[if `mysql@5.7` installed]__ Set environment variables and CLIs paths for mysql@5.7
 
 > You can install all these packages if you use [brew](https://brew.sh) as a packages manager: `brew install nodenv rbenv go pyenv pyenv-virtualenv mysql@5.7`
-
-The purpose of this configuration is for my personal usage only. I share it on Github to version it and it could help some people to set their own fish environment.
 
 ### How to install it? (macOS)
 
@@ -40,3 +43,5 @@ The purpose of this configuration is for my personal usage only. I share it on G
     mv ~/.config/fish /tmp/
     git clone https://github.com/CPatchane/config-fish.git ~/.config/fish
     ```
+
+4. Load your config by doing `source ~/.config/fish`

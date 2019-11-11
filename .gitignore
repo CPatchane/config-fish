@@ -1,5 +1,8 @@
-# Private aliases
+# Private or local aliases
 aliases/private.fish
+
+# Private or local environment
+env/private.fish
 
 # Private or local config
 private.fish

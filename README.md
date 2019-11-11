@@ -19,6 +19,7 @@ Mainly:
 - Add custom aliases for git and some CLIs with private aliases
 - Add some useful functions like `yupgrade` (see [`./functions` directory](./functions))
 - Handle environment configuration when needed (see [the environments part](#environements))
+- Handle private/local aliases, environment or configuration (see the [private/local configuration part](#private-local-configuration))
 
 #### Environements
 
@@ -30,6 +31,13 @@ This configuration handle some environments if it found the related command (see
   - __[if `mysql@5.7` installed]__ Set environment variables and CLIs paths for mysql@5.7
 
 > You can install all these packages if you use [brew](https://brew.sh) as a packages manager: `brew install nodenv rbenv go pyenv pyenv-virtualenv mysql@5.7`
+
+#### Private / Local configurations
+
+You can add private/local only configurations/environments/aliases if you need to. Just add a `private.fish` which will be ignored by `git` and won't be commited:
+- in the root folder for a private fish configuration
+- in the `env/` folder for a private environment set up
+- in the `aliases/` folder for private aliases
 
 ### How to install it? (macOS)
 

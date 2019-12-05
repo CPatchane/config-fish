@@ -41,7 +41,7 @@ You can add private/local only configurations/environments/aliases if you need t
 
 ### How to install it? (macOS)
 
-1.  If it's not done yet, install `fish` using [brew](https://brew.sh) by doing `brew install fish`. Then run `fish` in your terminal to use the `fish` shell.
+1.  If it's not done yet, install `fish` using [brew](https://brew.sh) by doing `brew install fish`. Then run `fish` in your terminal to use the `fish` shell. This configuration need a recent fish version (v3+).
 
 2.  Install the [nerdfont](https://github.com/ryanoasis/nerd-fonts) of your choice and use it in your terminal. As the prompt will use some special characters from these fonts, you will need it if you want to have all icons.
 

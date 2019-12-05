@@ -1,30 +1,33 @@
-function n2b --description "Push npm build files (defined in ./package.json files property) to an orphan branch"
+function n2b --description "Push npm build files (defined in package.json files property) to an orphan branch" --argument-names branch_name folder
     if ! type -q git; echo "Git is not installed"; return; end
-    if ! type -q jq; echo "jq command not found"; return; end
-    if [ ! -f ./package.json ]; echo "No ./package.json found"; return; end
+    if ! type -q npm; echo "npm is not installed"; return; end
+    if ! type -q tar; echo "tar is not installed"; return; end
+    if [ -z "$branch_name" ]; echo "Branch name required as first argument"; return; end
 
-    # package.json is never added itself in the files property but must be deployed
-    set -l build_files (cat package.json | jq -r '(.files + ["package.json"])[]')
-    if [ -z "$build_files" ]; echo "No build files found to push"; return; end
+    test -n "$folder"; or set -l folder "./"
 
-    set -l branch_exists (git show-ref "refs/heads/$argv[1]")
-    if [ -n "$branch_exists" ];
-        echo "$argv[1] branch already exists :/"
+    if git show-ref "refs/heads/$branch_name";
+        echo "$branch_name branch already exists :/"
         return
     end
 
-    git checkout --orphan "$argv[1]"
+    git checkout --orphan "$branch_name"
+    git reset .
 
-    echo "To push to $argv[1] branch: $build_files"
     echo ""
 
-    git reset .
-    # We often want to push some build files ignored by the main repo
-    rm -f .gitignore
-    git add $build_files
-    git commit -m "Deploy build"
-    # clean the working directory (not build files)
-    git clean -fd
+    # pack the npm package as it would be to publish on the registry
+    set -l tarball (npm pack "$folder" --quiet)
+
+    # Just keep the tarball and the .git folder
+    ls -A . | grep -v "$tarball" | grep -v ".git/" | xargs rm -rf
+
+    # extract tarball content and strip the package/ root folder
+    tar --directory ./ -xzf "$tarball" --strip-components=1
+    rm -f "$tarball"
+
+    git add .
+    git commit -m "Deploy build" --quiet
 
     echo ""
     echo "⚠️ You're in a detached branch."

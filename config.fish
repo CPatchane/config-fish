@@ -19,6 +19,17 @@ set -x EDITOR vim
 set -x GIT_EDITOR $EDITOR
 set -x SUDO_EDITOR "rvim -u NONE"
 
+switch (uname)
+case Linux
+    set -x OSTYPE "Linux"
+case Darwin
+    set -x OSTYPE "MacOS"
+case FreeBSD NetBSD DragonFly
+    set -x OSTYPE "FreeBSD"
+case '*'
+    set -x OSTYPE "unknown"
+end
+
 ## ENV
 
 if [ -f $HOME/.config/fish/env/index.fish ]

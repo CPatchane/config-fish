@@ -1,4 +1,4 @@
 # Nodenv (if nodenv exists)
-if type -q nodenv
+if command -vq nodenv
     status --is-interactive; and source (nodenv init -|psub)
 end

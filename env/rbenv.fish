@@ -1,4 +1,4 @@
 # Rbenv (if rbenv exists)
-if type -q rbenv
+if command -vq rbenv
     status --is-interactive; and source (rbenv init -|psub)
 end

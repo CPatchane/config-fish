@@ -1,6 +1,6 @@
 function yupgrade --description "Upgrade all packages found by regex argument in ./package.json using yarn" --argument-names pattern
-    if ! type -q yarn; echo "Yarn is not installed"; return; end
-    if ! type -q jq; echo "jq command not found"; return; end
+    if ! command -vq yarn; echo "Yarn is not installed"; return; end
+    if ! command -vq jq; echo "jq command not found"; return; end
     if [ ! -f ./package.json ]; echo "No ./package.json found"; return; end
 
     set -l packages_list (cat package.json | jq -r --arg term "$pattern" '(.dependencies + .devDependencies) | keys | map(select(test($term))) | join(" ")')

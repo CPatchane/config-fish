@@ -1,7 +1,7 @@
 function n2b --description "Push npm build files (defined in package.json files property) to an orphan branch" --argument-names branch_name folder
-    if ! type -q git; echo "Git is not installed"; return; end
-    if ! type -q npm; echo "npm is not installed"; return; end
-    if ! type -q tar; echo "tar is not installed"; return; end
+    if ! command -vq git; echo "Git is not installed"; return; end
+    if ! command -vq npm; echo "npm is not installed"; return; end
+    if ! command -vq tar; echo "tar is not installed"; return; end
     if [ -z "$branch_name" ]; echo "Branch name required as first argument"; return; end
 
     test -n "$folder"; or set -l folder "./"

@@ -1,3 +1,7 @@
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
 alias ls="ls -FG"
 alias rm="rm -i"
 alias ssh_tunnel_bg="ssh -f -N"

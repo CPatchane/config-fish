@@ -6,15 +6,19 @@ function n2b --description "Push npm build files (defined in package.json files 
 
     test -n "$folder"; or set -l folder "./"
 
-    if git show-ref "refs/heads/$branch_name";
-        echo "$branch_name branch already exists :/"
+    if git show-ref "refs/heads/$branch_name" --quiet;
+        printf "\n%s\n" "$branch_name branch already exists :/"
         return
     end
 
-    git checkout --orphan "$branch_name"
+    printf "\n%s" "> Creating the build branch..."
+
+    git checkout --orphan "$branch_name" --quiet
     git reset .
 
-    echo ""
+    printf "\r%s\n" "> Creating the build branch... ✅"
+
+    printf "\n%s" "> Packaging..."
 
     # pack the npm package as it would be to publish on the registry
     set -l tarball (npm pack "$folder" --quiet)
@@ -26,10 +30,23 @@ function n2b --description "Push npm build files (defined in package.json files 
     tar --directory ./ -xzf "$tarball" --strip-components=1
     rm -f "$tarball"
 
+    printf "\r%s\n" "> Packaging... ✅"
+
+    printf "\n%s" "> Committing..."
+
     git add .
     git commit -m "Deploy build" --quiet
 
-    echo ""
-    echo "⚠️ You're in a detached branch."
-    echo "If you go back to the main branch, don't forget to install your dependencies back."
+    printf "\r%s\n\n" "> Committing... ✅"
+
+    read -l -P "Git remote to push to? (origin)" remoteToPush
+    test -n "$remoteToPush"; or set -l remoteToPush "origin"
+
+    printf "\n"
+
+    git push $remoteToPush HEAD
+
+    printf "\n\n%s\n" "Install it using: yarn add <package>@<user>/<repo>#$branch_name"
+    printf "\n%s\n" "PS: You're in a detached branch."
+    printf "%s\n" "If you go back to the main branch, don't forget to install your dependencies back."
 end

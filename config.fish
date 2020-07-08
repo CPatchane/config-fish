@@ -57,7 +57,7 @@ end
 
 #
 ### GIT PROMPT CONFIGURATION
-# See the file /usr/local/share/fish/functions/__fish_git_prompt.fish
+# See the file /usr/local/share/fish/functions/fish_git_prompt.fish
 #
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'

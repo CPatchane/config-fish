@@ -32,6 +32,11 @@ end
 
 ## ENV
 
+# Fish 3.1+ doesn't add binaries to the path autmatically anymore
+# https://github.com/fish-shell/fish-shell/issues/6594
+contains /usr/local/bin $PATH
+or set PATH /usr/local/bin $PATH
+
 if [ -f $HOME/.config/fish/env/index.fish ]
     source $HOME/.config/fish/env/index.fish
 end

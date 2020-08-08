@@ -1,4 +1,6 @@
 # Nodenv (if nodenv exists)
 if command -vq nodenv
-    status --is-interactive; and source (nodenv init -|psub)
+    if not string match -q '*nodenv*' $PATH
+        status --is-interactive; and source (nodenv init -|psub)
+    end
 end

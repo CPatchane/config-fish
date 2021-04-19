@@ -5,5 +5,6 @@ if command -vq pyenv
         if which pyenv-virtualenv-init > /dev/null
             status --is-interactive; and source (pyenv virtualenv-init -|psub)
         end
+        pyenv rehash
     end
 end

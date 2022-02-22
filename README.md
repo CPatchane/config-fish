@@ -52,4 +52,4 @@ You can add private/local only configurations/environments/aliases if you need t
     git clone https://github.com/CPatchane/config-fish.git ~/.config/fish
     ```
 
-4. Load your config by doing `source ~/.config/fish`
+4. Load your config by doing `source ~/.config/fish` (it should be run by default when opening a new shell with `fish`)

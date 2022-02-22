@@ -36,6 +36,9 @@ end
 # https://github.com/fish-shell/fish-shell/issues/6594
 contains /usr/local/bin $PATH
 or set PATH /usr/local/bin $PATH
+# On M1 Macs, homebrew installs things in /opt/homebrew
+contains /opt/homebrew/bin
+or set PATH /opt/homebrew/bin $PATH
 
 if [ -f $HOME/.config/fish/env/index.fish ]
     source $HOME/.config/fish/env/index.fish

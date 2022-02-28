@@ -20,6 +20,9 @@ function n2b --description "Push npm build files (defined in package.json files 
 
     printf "\n%s" "> Packaging..."
 
+    # For some reasons, npm pkg get return string with double quotes, so we remove them
+    set -l pkgName (npm pkg get name | string sub -s 2 -e -1)
+
     # pack the npm package as it would be to publish on the registry
     set -l tarball (npm pack "$folder" --quiet)
 
@@ -39,14 +42,17 @@ function n2b --description "Push npm build files (defined in package.json files 
 
     printf "\r%s\n\n" "> Committing... ✅"
 
-    read -l -P "Git remote to push to? (origin)" remoteToPush
+    read -l -P "Git remote to push to? (origin) " remoteToPush
     test -n "$remoteToPush"; or set -l remoteToPush "origin"
+
+    set -l remoteUrl (git remote get-url $remoteToPush)
+    string match -rq '.*[:/](?<host>[\\w-]*)\\/(?<repo>[\\w-]*)\\.git\\/?$' $remoteUrl
 
     printf "\n"
 
     git push $remoteToPush HEAD
 
-    printf "\n\n%s\n" "Install it using: yarn add <package>@<user>/<repo>#$branch_name"
+    printf "\n\n%s\n" "Install it using: yarn add $pkgName@$host/$repo#$branch_name"
     printf "\n%s\n" "PS: You're in a detached branch."
     printf "%s\n" "If you go back to the main branch, don't forget to install your dependencies back."
 end

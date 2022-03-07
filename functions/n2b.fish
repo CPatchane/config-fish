@@ -76,7 +76,11 @@ function n2b --description "Push npm build files (defined in package.json files 
 
     git push $remoteToPush HEAD
 
-    printf "\n\n%s\n" "Install it using: yarn add $pkgName@$host/$repo#$branchName"
+    if test $localBranchExists -eq 1; or test $remoteBranchExists -eq 1;
+        printf "\n\n%s\n" "Re-install it using: yarn remove $pkgName; yarn add $pkgName@$host/$repo#$branchName"
+    else
+        printf "\n\n%s\n" "Install it using: yarn add $pkgName@$host/$repo#$branchName"
+    end
     printf "\n%s\n" "PS: You're in a detached branch."
     printf "%s\n" "If you go back to the main branch, don't forget to install your dependencies back."
 end

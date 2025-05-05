@@ -31,7 +31,7 @@ This configuration handle some environments if it found the related command (see
   - __[if `mysql@5.7` installed]__ Set environment variables and CLIs paths for mysql@5.7
   - __[if `pnpm` installed]__ Set the `$PNPM_HOME` environment variable for [pnpm](https://pnpm.io/) global binaries and packages
 
-> You can install all these packages if you use [brew](https://brew.sh) as a packages manager: `brew install nodenv rbenv go pyenv pyenv-virtualenv mysql@5.7`
+> You can install all these packages if you use [brew](https://brew.sh) as a packages manager: `brew install nodenv rbenv go pyenv pyenv-virtualenv mysql@5.7 pnpm`
 
 #### Private / Local configurations
 

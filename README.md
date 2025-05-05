@@ -17,7 +17,7 @@ Mainly:
 - Prompt using two lines
 - Custom Git prompt using a [nerdfont](https://github.com/ryanoasis/nerd-fonts)
 - Add custom aliases for git and some CLIs with private aliases
-- Add some useful functions like `yupgrade` (see [`./functions` directory](./functions))
+- Add some useful functions like `pupgrade` (see [`./functions` directory](./functions))
 - Handle environment configuration when needed (see [the environments part](#environements))
 - Handle private/local aliases, environment or configuration (see the [private/local configuration part](#private-local-configuration))
 
@@ -29,6 +29,7 @@ This configuration handle some environments if it found the related command (see
   - __[if `pyenv` installed]__ Initialize a Python environment using [pyenv](https://github.com/pyenv/pyenv) with virtualenv management ([pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv))
   - __[if `go` installed]__ Set [Go](https://golang.org/) environment variables
   - __[if `mysql@5.7` installed]__ Set environment variables and CLIs paths for mysql@5.7
+  - __[if `pnpm` installed]__ Set the `$PNPM_HOME` environment variable for [pnpm](https://pnpm.io/) global binaries and packages
 
 > You can install all these packages if you use [brew](https://brew.sh) as a packages manager: `brew install nodenv rbenv go pyenv pyenv-virtualenv mysql@5.7`
 
@@ -39,7 +40,7 @@ You can add private/local only configurations/environments/aliases if you need t
 - in the `env/` folder for a private environment set up
 - in the `aliases/` folder for private aliases
 
-### How to install it? (macOS)
+### How to install it? (tested on macOS, can difer on a different system)
 
 1.  If it's not done yet, install `fish` using [brew](https://brew.sh) by doing `brew install fish`. Then run `fish` in your terminal to use the `fish` shell. This configuration need a recent fish version (v3.1+).
 

@@ -24,18 +24,21 @@ Mainly:
 #### Environements
 
 This configuration handle some environments if it found the related command (see [`./env` directory](./env)):
-  - __[if `nodenv` installed]__ Initialize a Node environment using [nodenv](https://github.com/nodenv/nodenv)
-  - __[if `rbenv` installed]__ Initialize a Ruby environment using [rbenv](https://github.com/rbenv/rbenv)
-  - __[if `pyenv` installed]__ Initialize a Python environment using [pyenv](https://github.com/pyenv/pyenv) with virtualenv management ([pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv))
-  - __[if `go` installed]__ Set [Go](https://golang.org/) environment variables
-  - __[if `mysql@5.7` installed]__ Set environment variables and CLIs paths for mysql@5.7
-  - __[if `pnpm` installed]__ Set the `$PNPM_HOME` environment variable for [pnpm](https://pnpm.io/) global binaries and packages
 
-> You can install all these packages if you use [brew](https://brew.sh) as a packages manager: `brew install nodenv rbenv go pyenv pyenv-virtualenv mysql@5.7 pnpm`
+- **[if `nodenv` installed]** Initialize a Node environment using [nodenv](https://github.com/nodenv/nodenv)
+- **[if `bunenv` installed]** Initialize a Ruby environment using [rbenv](https://github.com/jonathanphilippou/bunenv)
+- **[if `rbenv` installed]** Initialize a Ruby environment using [rbenv](https://github.com/rbenv/rbenv)
+- **[if `pyenv` installed]** Initialize a Python environment using [pyenv](https://github.com/pyenv/pyenv) with virtualenv management ([pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv))
+- **[if `go` installed]** Set [Go](https://golang.org/) environment variables
+- **[if `mysql@5.7` installed]** Set environment variables and CLIs paths for mysql@5.7
+- **[if `pnpm` installed]** Set the `$PNPM_HOME` environment variable for [pnpm](https://pnpm.io/) global binaries and packages
+
+> You can install all these packages if you use [brew](https://brew.sh) as a packages manager: `brew install nodenv jonathanphilippou/tap/bunenv rbenv go pyenv pyenv-virtualenv mysql@5.7 pnpm`
 
 #### Private / Local configurations
 
 You can add private/local only configurations/environments/aliases if you need to. Just add a `private.fish` which will be ignored by `git` and won't be commited:
+
 - in the root folder for a private fish configuration
 - in the `env/` folder for a private environment set up
 - in the `aliases/` folder for private aliases
@@ -53,4 +56,4 @@ You can add private/local only configurations/environments/aliases if you need t
     git clone https://github.com/CPatchane/config-fish.git ~/.config/fish
     ```
 
-4. Load your config by doing `source ~/.config/fish` (it should be run by default when opening a new shell with `fish`)
+4.  Load your config by doing `source ~/.config/fish` (it should be run by default when opening a new shell with `fish`)

@@ -36,6 +36,9 @@ or set PATH /usr/local/bin $PATH
 # On M1 Macs, homebrew installs things in /opt/homebrew
 contains /opt/homebrew/bin
 or set PATH /opt/homebrew/bin $PATH
+# User local binaries
+contains $HOME/.local/bin $PATH
+or set PATH $HOME/.local/bin $PATH
 
 if [ -f $HOME/.config/fish/env/index.fish ]
     source $HOME/.config/fish/env/index.fish
